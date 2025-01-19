@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR gentator</title>
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .container{
+            background-color:rgb(13, 80, 116);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex-direction: column;
+        }
+        .input{
+            background-color: white;
+            padding: 50px 100px;
+            text-align: center;
+            border: 5px solid black;
+            border-radius: 40px;
+        }
+        p{
+            font-size: 200%;
+        }
+        input{
+            height: 50px;
+            width: 250px ;
+            border-radius: 20px;
+        }
+        button{
+            background-color: rgb(34, 0, 255);
+            height: 50px;
+            width: 250px;
+            border-radius: 20px;
+        }
+        button:hover{
+            transition: scale(1.05);
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input">
+            <p>QR Code Gentator</p>
+            <input type="text" id="inputtext" placeholder="Enter your url"><br><br>
+            <button onclick="genrate()"> Genrate QR</button>
+        </div>
+        <div class="qr">
+            <div class="img">
+                <img src="" id="imgqr"><br><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        let inputtext= document.getElementById("inputtext");
+        let img= document.getElementById("imgqr");
+        function genrate(){
+           imgqr.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+ inputtext.value;
+        }
+    </script>
+</body>
+</html>
